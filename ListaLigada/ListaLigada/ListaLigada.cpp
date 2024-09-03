@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -137,21 +136,60 @@ void inserirElemento()
 		// procura o final da lista
 		NO* aux = primeiro;
 		while (aux->prox != NULL) {
+			if (aux->valor == novo->valor)
+			{
+				cout << "O elemento já está na lista." << endl;
+				return;
+			}
 			aux = aux->prox;
 		}
 		aux->prox = novo;
 	}
 }
 
+
+
 void excluirElemento()
 {
-	
+
 }
 
 void buscarElemento()
 {
-	
+	int valorBusca;
+	cout << "Digite o elemento que deseja buscar: ";
+	cin >> valorBusca;
+
+	NO* aux = primeiro;
+	while (aux != NULL) {
+		if (aux->valor == valorBusca)
+		{
+			cout << "Elemento encontrado." << endl;
+			return;
+		}
+		aux = aux->prox;
+	}
+	cout << "Elemento não encontrado";
 }
+
+
+
+
+// retorna um ponteiro para o elemento buscado
+// ou NULL se o elemento não estiver na lista
+NO* posicaoElemento(int numero)
+{
+	NO* aux = primeiro;
+	while (aux != NULL) {
+		if (aux->valor == numero)
+		{
+			break;
+		}
+		aux = aux->prox;
+	}
+	return aux;
+}
+
 
 
 
